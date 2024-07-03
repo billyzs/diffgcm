@@ -1,0 +1,32 @@
+[project]
+name = "diffgcm"
+version = "0.1.0"
+description = "Differentiable GCM"
+authors = [
+    { name = "bzs", email = "me@bzs.rocks" }
+]
+dependencies = [
+    "dinosaur-dycore @ git+https://github.com/google-research/dinosaur",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+license = { text = "MIT" }
+
+[project.scripts]
+"diffgcm" = "diffgcm:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pre-commit>=3.7.1",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/diffgcm"]
